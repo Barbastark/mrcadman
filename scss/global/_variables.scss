@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css?family=Merriweather:400,900|Six+Caps');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Open+Sans:wght@400;700&display=swap');
+
+:root {
+
+  /* Colors */
+  --clr-primary-bg: #FFFFFF;
+  --clr-secondary-bg: #09455E;
+  --clr-primary-accent: #0078AA;
+  //--clr-primary-accent: #049FA2;
+  --clr-secondary-accent: #999d00;
+  --clr-mustard: #ABA411;
+  --light-gray: #E8E9EB;
+  --gray: #A7A7A7;
+  --dark-gray: #606060;
+
+  /* Fonts */
+  --ff-mw: 'Merriweather', serif;
+  --ff-sc: 'Six Caps', sans-serif;
+  --ff-os: 'Open Sans', sans-serif;
+
+  /* Font Weights */
+  --fw-bold: 900;
+  --fw-normal: 400;
+  --fw-light: 100;
+
+  /* Element Dimensions */
+  --ew-nav-container: clamp(200px, 100vmin, 412px);
+
+  /* Element Transitions */
+  --nav-transition-duration: .15s;
+}

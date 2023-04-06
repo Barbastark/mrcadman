@@ -1,0 +1,96 @@
+@mixin container(
+  $width: 90%,
+  $mwidth: 50em,
+  $pblock: 2.5em
+) {
+  width: $width;
+  max-width: $mwidth;
+  padding-block: $pblock;
+  margin-block: 0;
+  margin-inline: auto;
+}
+
+@mixin sans-serif(
+  $fs,
+  $ls: .15em,
+  $color: var(--dark-gray),
+  $tt: uppercase,
+  $lh: 1
+) {
+  font-size: $fs;
+  letter-spacing: $ls;
+  color: $color;
+  text-transform: $tt;
+  line-height: $lh;
+  font-family: var(--ff-sc);
+  font-weight: var(--fw-light);
+}
+
+@mixin flex-center ($direction: row) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin transition(
+  $property: all,
+  $duration: .25s,
+  $timing: ease-in-out,
+  $delay: 0s
+) {
+  -webkit-transition: $property $duration $timing $delay;
+  -o-transition: $property $duration $timing $delay;
+  -moz-transition: $property $duration $timing $delay;
+  transition: $property $duration $timing $delay;
+}
+
+@mixin transform($property) {
+  -webkit-transform: $property;
+  -ms-transform: $property;
+  transform: $property;
+}
+
+@mixin pos-tl(
+  $type: relative,
+  $top: 0,
+  $left: 0
+) {
+  position: $type;
+  top: $top;
+  left: $left;
+}
+
+@mixin pos-tr(
+  $type: relative,
+  $top: 0,
+  $right: 0
+) {
+  position: $type;
+  top: $top;
+  right: $right;
+}
+
+@mixin pos-all(
+  $type: relative,
+  $top: 0,
+  $right: 0,
+  $bottom: 0,
+  $left: 0
+) {
+  position: $type;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+@function setTextColor($color) {
+  @if(lightness($color) > 40%) {
+    @return #000;
+  }
+
+  @else {
+    @return $white;
+  }
+}

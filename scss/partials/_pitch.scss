@@ -1,0 +1,46 @@
+.pitch {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(auto, 60em) minmax(0, 1fr);
+  color: rgba(var(--white), .7);
+
+  &__center {
+    background: var(--clr-secondary-bg);
+    padding: 0 calc(.7em + 2vmax) 2.5em;
+    text-align: center;
+
+    img {
+      background: rgba(#09455E, 0.5);
+      border: 2px solid var(--clr-mustard);
+      border-radius: 50%;
+      width: clamp(100px, 70%, 250px);
+      margin: 2em auto;
+    }
+
+    h1 {
+      color: var(--light-gray);
+      margin-top: 0;
+
+      &::after {
+        content: '';
+        width: 40%;
+        height: 2px;
+        background: var(--clr-mustard);
+        display: block;
+        margin: 1em auto 0;
+      }
+    }
+  }
+
+  &__left,
+  &__right {
+    display: inline-block;
+  }
+
+  &__left img,
+  &__right img {
+    object-fit: cover;
+    display: block;
+    min-height: 100%;
+    width: 100%;
+  }
+}

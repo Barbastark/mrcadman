@@ -1,0 +1,26 @@
+@use 'sass:math';
+
+/*
+* Convert pixels to rem based on the default
+* font size. In most browsers default font
+* size is 16px.
+*/
+@function rem($px) {
+  @if math.is-unitless($px) {
+    @return math.div($px, 16)+rem;
+  }
+
+  @else {
+    @error 'Units not allowed.';
+  }
+}
+
+@function em($px) {
+  @if math.is-unitless($px) {
+    @return math.div($px, 16)+em;
+  }
+
+  @else {
+    @error 'Units not allowed.';
+  }
+}

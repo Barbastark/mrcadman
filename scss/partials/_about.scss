@@ -1,0 +1,11 @@
+@use '../util/' as u;
+
+.about {
+  @include u.container;
+  color: #666;
+  text-align: center;  
+  &__title {
+    margin: 1em 0;
+    color: var(--clr-primary-accent);
+  }
+}

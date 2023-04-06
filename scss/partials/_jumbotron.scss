@@ -1,0 +1,62 @@
+@use '../util/' as u;
+
+.jumbotron {
+  background-image: url("../assets/img/header-bg.png");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: .5em;
+
+}
+
+.intro {
+
+  h1 {
+    font-size: clamp(18px, calc(2rem + 2vw), 40px);
+    font-weight: var(--fw-normal);
+    color: var(--clr-mustard);
+    letter-spacing: .15em;
+    line-height: 2;
+
+    span {
+      font-size: clamp(30px, calc(4.5rem + 2vw), 140px);
+      font-family: var(--ff-sc);
+      font-weight: var(--fw-light);
+      color: var(--clr-primary-accent);
+      display: block;
+      text-transform: uppercase;
+      letter-spacing: inherit;
+      line-height: 1.2;
+    }
+
+    &::after {
+      content: '';
+      display: block;
+      width: 40%;
+      height: 1px;
+      background-color: var(--clr-mustard);
+      margin: 2rem auto 0;
+    }
+
+  }
+
+  p {
+    font-size: clamp(16px, calc(.8rem + 2vw), 26px);
+    color: var(--clr-secondary-bg);
+    margin-bottom: 2em;
+  }
+
+  button {
+    background-image: linear-gradient(var(--clr-primary-accent), var(--clr-secondary-bg));
+    border: none;
+    border-radius: 7px;
+    color: #fff;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, .25);
+    padding: .9em 1em;
+  }
+}

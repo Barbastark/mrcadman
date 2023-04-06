@@ -1,0 +1,100 @@
+@use '../util' as u;
+
+.portfolio {
+  text-align: center;
+  background: var(--light-gray);
+  padding: 5em 0;
+
+  &__items {
+    max-width: 60rem;
+    margin-inline: auto; 
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0 0;
+    justify-content: space-evenly;
+  }
+}
+
+.portfolio-item {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 40rem;
+  margin-inline: auto;
+  margin-block: 0;
+  
+  &__image {
+    width: 100%;
+    height: 100%;
+    filter: grayscale(0);
+    @include u.transition();
+  }
+
+  &__title {
+    color: var(--clr-primary-bg);
+    font-size: 2.5rem;
+    margin-bottom: auto;
+    transform: translateX(calc(-100% - 2em));
+  }
+
+  &__desc {
+    transform: translateX(calc(100% + 2em));
+  }
+
+
+  &__btn {
+    color: var(--clr-secondary-accent);
+    background: transparent;
+    border: none;
+    font-weight: var(--fw-bold);
+    font-size: 1.1rem;
+    align-self: flex-start;
+    transform: translateX(calc(100% + 2em));
+
+    &::after {
+      content: url(../assets/img/arrow-white.svg);
+      color: black;
+      display: inline-block;
+      height: .8em;
+      width: .8em;
+      margin-left: .5em;
+    }
+  }
+
+  &__title,
+  &__desc,
+  &__btn {
+    width: 100%;
+    text-align: left;
+  }
+
+  &__overlay {
+    @include u.pos-all(absolute);
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+    padding: 1em;
+    background: rgba(#0078AA, .5);
+    backdrop-filter: blur(5px);
+    color: var(--clr-primary-bg);
+    text-align: left;
+    transform: scale(0);
+    @include u.transition();
+
+  }
+  
+  &:hover &__title,
+  &:hover &__desc,
+  &:hover &__btn {
+    @include u.transition($delay: .25s);
+    transform: translateX(0);
+  }
+  
+  &:hover &__overlay {
+    transform: scale(1);
+  }
+}
+
+.desaturate {
+  filter: grayscale(1);
+}

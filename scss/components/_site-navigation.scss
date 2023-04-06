@@ -1,0 +1,167 @@
+@use '../util/' as u;
+
+.btn-sitenav {
+  @include u.transition($timing: linear);
+  background: var(--clr-secondary-bg);
+  border: 1px solid var(--clr-secondary-bg);
+  position: fixed;
+  bottom: 1.3rem;
+  left: calc(50vw - 30px);
+  border-radius: 90%;
+  font-size: 50px;
+  width: 1em;
+  height: 1em;
+  z-index: 3;
+  cursor: pointer;
+  opacity: 1;
+  visibility: visible;
+
+
+
+  &.open {
+    background-color: var(--clr-secondary-bg);
+    border-color: var(--clr-secondary-bg);
+  }
+
+  &__burger {
+    @include u.transition($duration: .15s, $timing: linear);
+    @include u.pos-tr(absolute, calc(50% - 1px), 15%);
+    width: 70%;
+    height: 2px;
+    background: var(--clr-primary-bg);
+    border-radius: 1px;
+
+    &::before,
+    &::after {
+      @include u.transition($duration: .15s, $timing: linear);
+      background: var(--clr-primary-bg);
+      content: "";
+      width: 100%;
+      height: inherit;
+      border-radius: inherit;
+    }
+
+    &::before {
+      @include u.pos-tl(absolute, -0.15em);
+    }
+
+    &::after {
+      @include u.pos-tl(absolute, 0.15em);
+    }
+
+    &.opening {
+      background: transparent;
+
+      &::before {
+        @include u.transform(translateY(0.15em));
+      }
+
+      &::after {
+        @include u.transform(translateY(-0.15em));
+
+      }
+    }
+
+    &.open {
+
+      &::before,
+      &::after {
+        background-color: var(--clr-primary-bg);
+      }
+
+      &::before {
+        @include u.transform(rotate(45deg) translateY(.105em) translateX(.105em));
+      }
+
+      &::after {
+        @include u.transform(rotate(-45deg) translateY(-.105em) translateX(.11em));
+      }
+    }
+  }
+}
+
+.sitenav {
+  
+  @include u.transition($duration: var(--nav-transition-duration), $timing: linear);
+  @include u.transform(translateX(calc(var(--ew-nav-container) * -1)));
+  @include u.pos-tl(fixed);
+  z-index: 2;
+  font-family: var(--ff-sc);
+  width: var(--ew-nav-container);
+  letter-spacing: 7px;
+  
+  &.open {
+    @include u.transform(translateX(0));
+  }
+
+  .sitenav-menu {
+    @include u.flex-center(column);
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-color: var(--clr-secondary-bg);
+    list-style: none;
+    
+    &__item {
+      @include u.transition($duration: .10s, $timing: linear);
+      @include u.transform(skewY(30deg));
+      font-size: 0;
+      width: 100%;
+
+      &.open {
+        @include u.transform(skewY(0deg));
+        font-size: clamp(40px, 3.5rem, 100px);
+        text-align: center;
+
+      }
+    }
+
+    &__link {
+      color: var(--clr-primary-accent);
+      text-decoration: none;
+      display: inline-block;
+      text-transform: uppercase;
+      margin-block: .4em;
+      width: 100%;
+
+      &:hover {
+        color: lighten(#0078AA, 5%);
+      }
+
+      &.active {
+        color: var(--clr-mustard);
+        border-left: 2px solid var(--clr-mustard);
+      }
+    }
+  }
+}
+
+
+@for $i from 1 through 4 {
+  .sitenav-menu__item:nth-child(#{$i}) {
+    transition-delay: ($i * .15s) + .1s;
+  }
+}
+
+/*@media screen and (min-width: 768px) {
+  .nav {
+    //width: 40rem;
+
+    .menu-nav {
+      //background: var(--clr-secondary-bg);
+
+      &__item {
+        &.open {
+          font-size: 4em;
+
+        }
+      }
+
+      &__link {
+
+        //padding: .3em;
+
+      }
+    }
+  }
+}*/

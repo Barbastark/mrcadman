@@ -1,0 +1,18 @@
+.footer {
+  display: grid;
+  color: var(--light-gray);
+  grid-template-columns: repeat(3, 1fr), repeat(1, 1fr);
+  justify-content: center;
+  padding: 1rem;
+  background-color: var(--clr-secondary-bg);
+  
+  &__social {
+    img {
+      width: 3rem;
+    }
+  }
+  &__copyright {
+    width: 100%;
+    text-align: center;
+  }
+}
